@@ -19,4 +19,4 @@ node_modules/
 # Build files (if any)
 dist/
 build/
-
+tmp/
