@@ -1,0 +1,168 @@
+[
+  {
+    "id": "zx-spectrum-gamer",
+    "name": "ZX Spectrum Gamer",
+    "category": "app",
+    "description": "An emulator app featuring a ZX Spectrum emulator allowing users to play classic games, read vintage magazines and books, and explore historical information about the ZX Spectrum.",
+    "shortDescription": "Play classic ZX Spectrum games and explore vintage magazines and historical content.",
+    "appStoreUrl": "https://apps.apple.com/app/zx-spectrum-gamer",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.cooolapps.zxspectrum",
+    "screenshots": [
+      "/assets/images/zx-spectrum-gamer-1.jpg",
+      "/assets/images/zx-spectrum-gamer-2.jpg",
+      "/assets/images/zx-spectrum-gamer-3.jpg"
+    ],
+    "features": [
+      "Full ZX Spectrum emulator",
+      "Play classic retro games",
+      "Read vintage magazines",
+      "Access historical books",
+      "Explore ZX Spectrum history"
+    ],
+    "icon": "/assets/images/zx-spectrum-gamer-icon.png"
+  },
+  {
+    "id": "treasure-island",
+    "name": "Treasure Island",
+    "category": "game",
+    "description": "Embark on a thrilling adventure in Treasure Island! Explore a mysterious tropical island, defeat cunning pirates, and solve challenging puzzles to uncover hidden treasures. To find the ultimate treasure, you'll explore 20 unique locations, collect special items, and overcome clever challenges. Some locations require specific items to enter, so plan your adventure carefully and think strategically.",
+    "shortDescription": "Embark on a thrilling adventure, explore a mysterious tropical island, defeat pirates, and solve puzzles to uncover hidden treasures.",
+    "appStoreUrl": "https://apps.apple.com/app/treasure-island",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.cooolapps.treasureisland",
+    "screenshots": [
+      "/assets/images/treasure-island-1.jpg",
+      "/assets/images/treasure-island-2.jpg",
+      "/assets/images/treasure-island-3.jpg"
+    ],
+    "features": [
+      "Point-and-click adventure gameplay with fun puzzles",
+      "Explore 20 unique locations on a beautiful tropical island",
+      "Defeat pirates and collect items to progress",
+      "Strategic item-based progression system",
+      "Optimized for devices with screen ratios between 16:10 and 21:9",
+      "Designed for players who love adventure and puzzle-solving"
+    ],
+    "icon": "/assets/images/treasure-island-icon.png"
+  },
+  {
+    "id": "app-3",
+    "name": "App 3",
+    "category": "app",
+    "description": "Description for App 3.",
+    "shortDescription": "Short description for App 3.",
+    "appStoreUrl": "https://apps.apple.com/app/app-3",
+    "googlePlayUrl": "",
+    "screenshots": [],
+    "features": [],
+    "icon": "/assets/images/app-3-icon.png"
+  },
+  {
+    "id": "app-4",
+    "name": "App 4",
+    "category": "app",
+    "description": "Description for App 4.",
+    "shortDescription": "Short description for App 4.",
+    "appStoreUrl": "",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.cooolapps.app4",
+    "screenshots": [],
+    "features": [],
+    "icon": "/assets/images/app-4-icon.png"
+  },
+  {
+    "id": "app-5",
+    "name": "App 5",
+    "category": "app",
+    "description": "Description for App 5.",
+    "shortDescription": "Short description for App 5.",
+    "appStoreUrl": "https://apps.apple.com/app/app-5",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.cooolapps.app5",
+    "screenshots": [],
+    "features": [],
+    "icon": "/assets/images/app-5-icon.png"
+  },
+  {
+    "id": "app-6",
+    "name": "App 6",
+    "category": "app",
+    "description": "Description for App 6.",
+    "shortDescription": "Short description for App 6.",
+    "appStoreUrl": "https://apps.apple.com/app/app-6",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.cooolapps.app6",
+    "screenshots": [],
+    "features": [],
+    "icon": "/assets/images/app-6-icon.png"
+  },
+  {
+    "id": "app-7",
+    "name": "App 7",
+    "category": "app",
+    "description": "Description for App 7.",
+    "shortDescription": "Short description for App 7.",
+    "appStoreUrl": "https://apps.apple.com/app/app-7",
+    "googlePlayUrl": "",
+    "screenshots": [],
+    "features": [],
+    "icon": "/assets/images/app-7-icon.png"
+  },
+  {
+    "id": "app-8",
+    "name": "App 8",
+    "category": "app",
+    "description": "Description for App 8.",
+    "shortDescription": "Short description for App 8.",
+    "appStoreUrl": "",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.cooolapps.app8",
+    "screenshots": [],
+    "features": [],
+    "icon": "/assets/images/app-8-icon.png"
+  },
+  {
+    "id": "app-9",
+    "name": "App 9",
+    "category": "app",
+    "description": "Description for App 9.",
+    "shortDescription": "Short description for App 9.",
+    "appStoreUrl": "https://apps.apple.com/app/app-9",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.cooolapps.app9",
+    "screenshots": [],
+    "features": [],
+    "icon": "/assets/images/app-9-icon.png"
+  },
+  {
+    "id": "app-10",
+    "name": "App 10",
+    "category": "app",
+    "description": "Description for App 10.",
+    "shortDescription": "Short description for App 10.",
+    "appStoreUrl": "https://apps.apple.com/app/app-10",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.cooolapps.app10",
+    "screenshots": [],
+    "features": [],
+    "icon": "/assets/images/app-10-icon.png"
+  },
+  {
+    "id": "game-2",
+    "name": "Game 2",
+    "category": "game",
+    "description": "Description for Game 2.",
+    "shortDescription": "Short description for Game 2.",
+    "appStoreUrl": "https://apps.apple.com/app/game-2",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.cooolapps.game2",
+    "screenshots": [],
+    "features": [],
+    "icon": "/assets/images/game-2-icon.png"
+  },
+  {
+    "id": "app-11",
+    "name": "App 11",
+    "category": "app",
+    "description": "Description for App 11.",
+    "shortDescription": "Short description for App 11.",
+    "appStoreUrl": "https://apps.apple.com/app/app-11",
+    "googlePlayUrl": "https://play.google.com/store/apps/details?id=com.cooolapps.app11",
+    "screenshots": [],
+    "features": [],
+    "icon": "/assets/images/app-11-icon.png"
+  }
+]
+
