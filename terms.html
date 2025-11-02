@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Terms & Conditions for Cool Apps">
+    <title>Terms & Conditions - Cool Apps</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <!-- Navigation -->
+    <nav class="navbar sticky top-0 z-50 shadow-md" id="navbar">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="text-2xl font-bold text-blue-600 dark:text-blue-400">Cool Apps</a>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Home</a>
+                    <a href="/apps.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Apps</a>
+                    <a href="/games.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Games</a>
+                    <a href="/about.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">About</a>
+                    <a href="/contact.html" class="hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a>
+                    <select id="theme-selector" class="theme-selector" onchange="window.setTheme(this.value)">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                        <option value="auto">Auto</option>
+                    </select>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 dark:text-gray-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="/" class="block py-2 hover:text-blue-600 dark:hover:text-blue-400">Home</a>
+                <a href="/apps.html" class="block py-2 hover:text-blue-600 dark:hover:text-blue-400">Apps</a>
+                <a href="/games.html" class="block py-2 hover:text-blue-600 dark:hover:text-blue-400">Games</a>
+                <a href="/about.html" class="block py-2 hover:text-blue-600 dark:hover:text-blue-400">About</a>
+                <a href="/contact.html" class="block py-2 hover:text-blue-600 dark:hover:text-blue-400">Contact</a>
+                <select id="theme-selector-mobile" class="theme-selector mt-2" onchange="window.setTheme(this.value)">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                    <option value="auto">Auto</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <section class="py-16 container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-8">Terms & Conditions</h1>
+            <div class="prose prose-lg dark:prose-invert max-w-none space-y-6 text-gray-700 dark:text-gray-300">
+                <p><strong>Last Updated:</strong> <span id="last-updated"></span></p>
+                
+                <section>
+                    <h2 class="text-2xl font-bold mb-4 mt-8">1. Acceptance of Terms</h2>
+                    <p>By downloading, installing, or using our applications, you agree to be bound by these Terms and Conditions. If you do not agree to these terms, please do not use our applications.</p>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold mb-4 mt-8">2. Use License</h2>
+                    <p>Permission is granted to temporarily download and use our applications for personal, non-commercial purposes only. This license does not include:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>Modifying or copying the materials</li>
+                        <li>Using the materials for any commercial purpose</li>
+                        <li>Attempting to reverse engineer or decompile the software</li>
+                        <li>Removing any copyright or proprietary notations</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold mb-4 mt-8">3. User Accounts</h2>
+                    <p>When you create an account with us, you must provide accurate and complete information. You are responsible for maintaining the security of your account and password.</p>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold mb-4 mt-8">4. Prohibited Uses</h2>
+                    <p>You agree not to use our applications:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>In any way that violates any applicable laws or regulations</li>
+                        <li>To transmit any malicious code or viruses</li>
+                        <li>To impersonate any person or entity</li>
+                        <li>To collect or store personal data about other users</li>
+                        <li>To interfere with or disrupt the application or servers</li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold mb-4 mt-8">5. Intellectual Property</h2>
+                    <p>Our applications and their original content, features, and functionality are owned by Cool Apps and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold mb-4 mt-8">6. Disclaimer</h2>
+                    <p>Our applications are provided "as is" and "as available" without any warranties, expressed or implied. We do not guarantee that our applications will be error-free or uninterrupted.</p>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold mb-4 mt-8">7. Limitation of Liability</h2>
+                    <p>In no event shall Cool Apps be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of our applications.</p>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold mb-4 mt-8">8. Termination</h2>
+                    <p>We may terminate or suspend your access immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold mb-4 mt-8">9. Changes to Terms</h2>
+                    <p>We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.</p>
+                </section>
+                
+                <section>
+                    <h2 class="text-2xl font-bold mb-4 mt-8">10. Contact Information</h2>
+                    <p>If you have any questions about these Terms and Conditions, please contact us through our <a href="/contact.html" class="text-blue-600 dark:text-blue-400 hover:underline">contact page</a>.</p>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 dark:bg-gray-900 text-gray-300 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-4">Cool Apps</h3>
+                    <p class="text-sm">Innovative mobile apps and games for iOS and Android.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/" class="hover:text-white transition">Home</a></li>
+                        <li><a href="/apps.html" class="hover:text-white transition">Apps</a></li>
+                        <li><a href="/games.html" class="hover:text-white transition">Games</a></li>
+                        <li><a href="/about.html" class="hover:text-white transition">About</a></li>
+                        <li><a href="/contact.html" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="/terms.html" class="hover:text-white transition">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Connect</h4>
+                    <p class="text-sm">© 2024 Cool Apps. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/utils.js"></script>
+    <script>
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const theme = window.getThemePreference();
+            const selectors = document.querySelectorAll('#theme-selector, #theme-selector-mobile');
+            selectors.forEach(sel => {
+                if (sel) sel.value = theme === 'light' || theme === 'dark' ? theme : 'auto';
+            });
+        });
+
+        document.getElementById('last-updated').textContent = new Date().toLocaleDateString();
+
+        tailwind.config = {
+            darkMode: ['class', '[data-theme="dark"]'],
+        }
+    </script>
+</body>
+</html>
+
