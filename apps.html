@@ -110,26 +110,44 @@
         });
 
         window.addEventListener('DOMContentLoaded', async () => {
-            const apps = await getAppsByCategory('app');
-            const container = document.getElementById('apps-grid');
-            const loading = document.getElementById('loading');
-            const noApps = document.getElementById('no-apps');
+            try {
+                console.log('Loading apps...');
+                const apps = await getAppsByCategory('app');
+                console.log('Apps loaded:', apps.length);
+                
+                const container = document.getElementById('apps-grid');
+                const loading = document.getElementById('loading');
+                const noApps = document.getElementById('no-apps');
 
-            if (apps.length === 0) {
-                loading.classList.add('hidden');
-                noApps.classList.remove('hidden');
-                return;
+                if (!apps || apps.length === 0) {
+                    console.error('No apps found');
+                    if (loading) loading.classList.add('hidden');
+                    if (noApps) noApps.classList.remove('hidden');
+                    return;
+                }
+
+                if (loading) loading.classList.add('hidden');
+                if (noApps) noApps.classList.add('hidden');
+                
+                container.innerHTML = ''; // Clear container
+                apps.forEach((app, index) => {
+                    setTimeout(() => {
+                        const card = createAppCard(app);
+                        container.appendChild(card);
+                    }, index * 100);
+                });
+            } catch (error) {
+                console.error('Error loading apps:', error);
+                const loading = document.getElementById('loading');
+                const noApps = document.getElementById('no-apps');
+                if (loading) loading.classList.add('hidden');
+                if (noApps) {
+                    noApps.classList.remove('hidden');
+                    noApps.textContent = 'Error loading apps. Please check the browser console.';
+                }
             }
 
-            loading.classList.add('hidden');
-            apps.forEach((app, index) => {
-                setTimeout(() => {
-                    const card = createAppCard(app);
-                    container.appendChild(card);
-                }, index * 100);
-            });
-
-            // Sync theme selector
+            // Sync theme selector (always run, outside try-catch)
             const theme = window.getThemePreference();
             const selectors = document.querySelectorAll('#theme-selector, #theme-selector-mobile');
             selectors.forEach(sel => {
@@ -140,12 +158,18 @@
         function createAppCard(app) {
             const card = document.createElement('div');
             card.className = 'app-card scroll-animate';
+            const iconSrc = app.icon || '/assets/images/placeholder.png';
+            
+            // Generate SVG placeholder if image fails to load
+            const appNameEncoded = encodeURIComponent(app.name);
+            const svgPlaceholder = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /><stop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /></linearGradient></defs><rect width='400' height='400' fill='url(%23grad)'/><text x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='24' font-weight='bold' font-family='system-ui'>${appNameEncoded}</text></svg>`;
+            
             card.innerHTML = `
                 <a href="/app/${app.id}.html" class="block">
-                    <img src="${app.icon || '/assets/images/placeholder.png'}" 
+                    <img src="${iconSrc}" 
                          alt="${app.name}" 
                          class="w-full h-48 object-cover"
-                         onerror="this.src='/assets/images/placeholder.png'">
+                         onerror="this.onerror=null; this.src='${svgPlaceholder}';">
                     <div class="p-4">
                         <h3 class="text-xl font-bold mb-2">${app.name}</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">${app.shortDescription}</p>

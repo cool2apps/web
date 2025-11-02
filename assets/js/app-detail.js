@@ -36,6 +36,10 @@ async function loadAppDetail() {
     // Update page title and meta
     document.title = `${app.name} - Cool Apps`;
     
+    // Generate SVG placeholder for missing images
+    const appNameEncoded = encodeURIComponent(app.name);
+    const svgPlaceholder = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /><stop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /></linearGradient></defs><rect width='400' height='400' fill='url(%23grad)'/><text x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='32' font-weight='bold' font-family='system-ui'>${appNameEncoded}</text></svg>`;
+    
     // Populate app details
     const appContent = document.getElementById('app-content');
     appContent.innerHTML = `
@@ -44,7 +48,7 @@ async function loadAppDetail() {
                 <img src="${app.icon || '/assets/images/placeholder.png'}" 
                      alt="${app.name}" 
                      class="w-full rounded-lg shadow-lg mb-6"
-                     onerror="this.src='/assets/images/placeholder.png'">
+                     onerror="this.onerror=null; this.src='${svgPlaceholder}';">
                 
                 ${app.screenshots && app.screenshots.length > 0 ? `
                     <div class="grid grid-cols-3 gap-4">

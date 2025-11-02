@@ -153,6 +153,34 @@
     box-shadow: var(--shadow-lg);
 }
 
+/* Image placeholder fallback */
+.app-card img {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-card img:not([src]),
+.app-card img[src=""],
+.app-card img[src*="placeholder"] {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 192px;
+}
+
+/* Fallback for completely missing images */
+.app-card .image-placeholder {
+    width: 100%;
+    height: 192px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 /* Sticky navigation */
 .navbar {
     backdrop-filter: blur(10px);

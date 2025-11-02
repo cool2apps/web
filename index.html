@@ -147,26 +147,44 @@
 
         // Load featured apps and games
         window.addEventListener('DOMContentLoaded', async () => {
-            const apps = await loadApps();
-            
-            // Featured apps (first 4 apps)
-            const featuredApps = apps.filter(app => app.category === 'app').slice(0, 4);
-            const appsContainer = document.getElementById('featured-apps');
-            if (appsContainer) {
-                featuredApps.forEach(app => {
-                    const card = createAppCard(app);
-                    appsContainer.appendChild(card);
-                });
-            }
-            
-            // Featured games (first 4 games)
-            const featuredGames = apps.filter(app => app.category === 'game').slice(0, 4);
-            const gamesContainer = document.getElementById('featured-games');
-            if (gamesContainer) {
-                featuredGames.forEach(game => {
-                    const card = createAppCard(game);
-                    gamesContainer.appendChild(card);
-                });
+            try {
+                const apps = await loadApps();
+                console.log('Total apps loaded:', apps.length);
+                
+                if (!apps || apps.length === 0) {
+                    console.error('No apps found in apps.json');
+                    const appsContainer = document.getElementById('featured-apps');
+                    const gamesContainer = document.getElementById('featured-games');
+                    if (appsContainer) appsContainer.innerHTML = '<p class="text-center text-gray-600 dark:text-gray-400">No apps available</p>';
+                    if (gamesContainer) gamesContainer.innerHTML = '<p class="text-center text-gray-600 dark:text-gray-400">No games available</p>';
+                    return;
+                }
+                
+                // Featured apps (first 4 apps)
+                const featuredApps = apps.filter(app => app.category === 'app').slice(0, 4);
+                console.log('Featured apps:', featuredApps.length);
+                const appsContainer = document.getElementById('featured-apps');
+                if (appsContainer) {
+                    appsContainer.innerHTML = ''; // Clear any loading state
+                    featuredApps.forEach(app => {
+                        const card = createAppCard(app);
+                        appsContainer.appendChild(card);
+                    });
+                }
+                
+                // Featured games (first 4 games)
+                const featuredGames = apps.filter(app => app.category === 'game').slice(0, 4);
+                console.log('Featured games:', featuredGames.length);
+                const gamesContainer = document.getElementById('featured-games');
+                if (gamesContainer) {
+                    gamesContainer.innerHTML = ''; // Clear any loading state
+                    featuredGames.forEach(game => {
+                        const card = createAppCard(game);
+                        gamesContainer.appendChild(card);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading featured apps:', error);
             }
 
             // Sync theme selector
@@ -180,11 +198,18 @@
         function createAppCard(app) {
             const card = document.createElement('div');
             card.className = 'app-card scroll-animate';
+            const iconSrc = app.icon || '/assets/images/placeholder.png';
+            
+            // Generate SVG placeholder if image fails to load
+            const appNameEncoded = encodeURIComponent(app.name);
+            const svgPlaceholder = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /><stop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /></linearGradient></defs><rect width='400' height='400' fill='url(%23grad)'/><text x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='24' font-weight='bold' font-family='system-ui'>${appNameEncoded}</text></svg>`;
+            
             card.innerHTML = `
                 <a href="/app/${app.id}.html" class="block">
-                    <img src="${app.icon || '/assets/images/placeholder.png'}" 
+                    <img src="${iconSrc}" 
                          alt="${app.name}" 
-                         class="w-full h-48 object-cover">
+                         class="w-full h-48 object-cover"
+                         onerror="this.onerror=null; this.src='${svgPlaceholder}';">
                     <div class="p-4">
                         <h3 class="text-xl font-bold mb-2">${app.name}</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">${app.shortDescription}</p>

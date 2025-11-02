@@ -59,11 +59,15 @@ A static website showcasing mobile apps and games, built for GitHub Pages deploy
      node generate-pages.js
      ```
    - **Option 3**: Manually copy `app-template.html` to `app/[app-id].html` for each app
-6. Add placeholder images:
-   - `favicon.ico` - Site favicon
-   - `app-store-badge.svg` - App Store download badge
-   - `google-play-badge.svg` - Google Play download badge
-   - `placeholder.png` - Default image for missing app icons
+6. **Images are optional!** (See `IMAGES-NOT-REQUIRED.md`)
+   - The site works perfectly without any images
+   - Missing app icons automatically generate beautiful SVG placeholders
+   - Store badges fall back to text if images are missing
+   - You can add these later for a polished look:
+     - `favicon.ico` - Site favicon
+     - `app-store-badge.svg` - App Store download badge (optional)
+     - `google-play-badge.svg` - Google Play download badge (optional)
+     - App icons and screenshots (optional - placeholders will show if missing)
 
 ## Adding/Removing Apps
 

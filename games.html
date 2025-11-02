@@ -110,26 +110,44 @@
         });
 
         window.addEventListener('DOMContentLoaded', async () => {
-            const games = await getAppsByCategory('game');
-            const container = document.getElementById('games-grid');
-            const loading = document.getElementById('loading');
-            const noGames = document.getElementById('no-games');
+            try {
+                console.log('Loading games...');
+                const games = await getAppsByCategory('game');
+                console.log('Games loaded:', games.length);
+                
+                const container = document.getElementById('games-grid');
+                const loading = document.getElementById('loading');
+                const noGames = document.getElementById('no-games');
 
-            if (games.length === 0) {
-                loading.classList.add('hidden');
-                noGames.classList.remove('hidden');
-                return;
+                if (!games || games.length === 0) {
+                    console.error('No games found');
+                    if (loading) loading.classList.add('hidden');
+                    if (noGames) noGames.classList.remove('hidden');
+                    return;
+                }
+
+                if (loading) loading.classList.add('hidden');
+                if (noGames) noGames.classList.add('hidden');
+                
+                container.innerHTML = ''; // Clear container
+                games.forEach((game, index) => {
+                    setTimeout(() => {
+                        const card = createGameCard(game);
+                        container.appendChild(card);
+                    }, index * 100);
+                });
+            } catch (error) {
+                console.error('Error loading games:', error);
+                const loading = document.getElementById('loading');
+                const noGames = document.getElementById('no-games');
+                if (loading) loading.classList.add('hidden');
+                if (noGames) {
+                    noGames.classList.remove('hidden');
+                    noGames.textContent = 'Error loading games. Please check the browser console.';
+                }
             }
 
-            loading.classList.add('hidden');
-            games.forEach((game, index) => {
-                setTimeout(() => {
-                    const card = createGameCard(game);
-                    container.appendChild(card);
-                }, index * 100);
-            });
-
-            // Sync theme selector
+            // Sync theme selector (always run, outside try-catch)
             const theme = window.getThemePreference();
             const selectors = document.querySelectorAll('#theme-selector, #theme-selector-mobile');
             selectors.forEach(sel => {
@@ -140,12 +158,18 @@
         function createGameCard(game) {
             const card = document.createElement('div');
             card.className = 'app-card scroll-animate';
+            const iconSrc = game.icon || '/assets/images/placeholder.png';
+            
+            // Generate SVG placeholder if image fails to load
+            const gameNameEncoded = encodeURIComponent(game.name);
+            const svgPlaceholder = `data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='400'><defs><linearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' style='stop-color:%23667eea;stop-opacity:1' /><stop offset='100%25' style='stop-color:%23764ba2;stop-opacity:1' /></linearGradient></defs><rect width='400' height='400' fill='url(%23grad)'/><text x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='24' font-weight='bold' font-family='system-ui'>${gameNameEncoded}</text></svg>`;
+            
             card.innerHTML = `
                 <a href="/app/${game.id}.html" class="block">
-                    <img src="${game.icon || '/assets/images/placeholder.png'}" 
+                    <img src="${iconSrc}" 
                          alt="${game.name}" 
                          class="w-full h-48 object-cover"
-                         onerror="this.src='/assets/images/placeholder.png'">
+                         onerror="this.onerror=null; this.src='${svgPlaceholder}';">
                     <div class="p-4">
                         <h3 class="text-xl font-bold mb-2">${game.name}</h3>
                         <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-2">${game.shortDescription}</p>
