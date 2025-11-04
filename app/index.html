@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>App Detail</title>
+    <link rel="stylesheet" href="/assets/css/pico.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/include.js"></script>
+    <script src="/assets/js/apps.js"></script>
+    <script src="/assets/js/app-detail.js"></script>
+  </head>
+
+  <body>
+    <div data-include="/header.html"></div>
+
+    <main class="container">
+      <section id="app-detail" class="app-detail">
+        <h1 id="app-name"></h1>
+
+        <div class="banner-container">
+          <img id="banner" alt="App banner" class="banner" />
+          <img id="icon" alt="App icon" class="icon-on-banner" />
+        </div>
+
+        <p id="description" class="description"></p>
+
+        <div id="screenshots" class="screenshots-grid"></div>
+
+        <footer class="app-footer">
+          <a href="/privacy.html">Privacy Policy</a> |
+          <a href="/terms.html">Terms & Conditions</a>
+        </footer>
+      </section>
+    </main>
+
+    <footer data-include="/footer.html"></footer>
+  </body>
+</html>

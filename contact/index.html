@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cool Apps | Contact Us</title>
+    <link rel="stylesheet" href="/assets/css/pico.min.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script src="/assets/js/include.js" defer></script>
+    <script src="/assets/js/theme.js"></script>
+  </head>
+
+  <body>
+    <div data-include="/header.html"></div>
+
+    <main class="container">
+      <section id="contact" class="contact-section">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you! Please fill out the form below.</p>
+
+        <form
+          action="https://formspree.io/f/xgvpprgn"
+          method="POST"
+          class="contact-form"
+        >
+          <label>
+            Your Name
+            <input type="text" name="name" required placeholder="John Doe" />
+          </label>
+
+          <label>
+            Your Email
+            <input
+              type="email"
+              name="_replyto"
+              required
+              placeholder="you@example.com"
+            />
+          </label>
+
+          <label>
+            Message
+            <textarea
+              name="message"
+              rows="6"
+              required
+              placeholder="Write your message here..."
+            ></textarea>
+          </label>
+
+          <input type="hidden" name="_subject" value="New Contact Form Message" />
+          <input type="hidden" name="_template" value="table" />
+
+          <button type="submit">Send Message</button>
+        </form>
+
+        <p id="form-status"></p>
+      </section>
+    </main>
+
+    <div data-include="/footer.html"></div>
+
+    <script>
+      // Form başarı/başarısız mesajları
+      const form = document.querySelector(".contact-form");
+      const status = document.getElementById("form-status");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const data = new FormData(form);
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { Accept: "application/json" },
+          });
+          if (response.ok) {
+            status.textContent = "Thank you! Your message has been sent.";
+            status.style.color = "green";
+            form.reset();
+          } else {
+            status.textContent =
+              "Oops! There was a problem submitting your form.";
+            status.style.color = "red";
+          }
+        } catch (error) {
+          status.textContent = "Network error. Please try again.";
+          status.style.color = "red";
+        }
+      });
+    </script>
+  </body>
+</html>

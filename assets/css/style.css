@@ -1,0 +1,148 @@
+.grid {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: stretch;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.app-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.app-card {
+  border: 1px solid var(--muted-border-color);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: var(--card-bg, var(--background-color));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-3px);
+}
+
+.app-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+}
+
+.app-meta h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.app-meta p {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted-text-color);
+}
+
+.app-badges {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+
+/* --- App Detail sayfası --- */
+
+.app-detail {
+  margin-top: 2rem;
+}
+
+.banner-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.banner {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.icon-on-banner {
+  position: absolute;
+  bottom: -2rem;
+  left: 2rem;
+  width: 96px;
+  height: 96px;
+  border-radius: 1rem;
+  border: 3px solid var(--background-color, #fff);
+  background: white;
+}
+
+.description {
+  margin-top: 3rem;
+  font-size: 1.1rem;
+}
+
+/* Grid yapılandırması */
+.screenshots-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.screenshots-grid img {
+  width: 100%;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+/* Landscape screenshot layout */
+.landscape-grid {
+  grid-template-columns: repeat(1, 1fr);
+}
+@media (min-width: 768px) {
+  .landscape-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .landscape-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Portrait screenshot layout */
+.portrait-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+@media (min-width: 768px) {
+  .portrait-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .portrait-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.app-footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
