@@ -148,7 +148,7 @@
 }
 
 .site-logo {
-  height: 80px;
+  height: 96px;
   width: auto;
   vertical-align: middle;
   margin-right: 0.5rem;
@@ -163,8 +163,6 @@
 
 .logo-link img {
   height: 64px;
-  vertical-align: middle;
-  transition: transform 0.2s ease-in-out;
 }
 
 /* Mobilde daha küçük göster (örneğin ekran 600px'den küçükse) */
@@ -181,60 +179,101 @@
   }
 }
 
-.nav-buttons {
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+/* Menü */
+nav ul.menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Menü ve tema düğmeleri grubu */
+.header-actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-left: auto;
 }
 
-.theme-switcher,
+/* Menü Toggle */
 .menu-toggle {
-  background: none;
+  display: none;
+  font-size: 1.5rem;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Tema düğmesi */
+.theme-switcher {
+  background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0.25rem 0.5rem;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
+  padding: 0;
 }
-
-/* Tema farkında görünürlük */
 .theme-switcher img {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
 }
 
-.menu-toggle {
-  font-size: 1.5rem;
-  line-height: 1;
-  color: var(--pico-color, currentColor);
-}
-
-.menu-toggle:hover,
-.theme-switcher:hover {
-  background-color: var(--pico-muted-border-color);
-}
-
-/* Mobil uyumlu menü */
+/* --- Mobil görünüm --- */
 @media (max-width: 768px) {
   nav {
-    position: relative;
+    flex-wrap: wrap;
   }
 
+  /* Menü görünümü */
   nav ul.menu {
     display: none;
+    width: 100%;
     flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    background: var(--pico-card-background-color);
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    z-index: 100;
+    gap: 0;
+    text-align: center;
   }
 
   nav ul.menu.show {
     display: flex;
+  }
+
+  /* Menü toggle göster, yanına tema butonu */
+  .menu-toggle {
+    display: block;
+  }
+
+  .header-actions {
+    margin-left: auto;
+  }
+
+  .menu-toggle:active,
+  .menu-toggle:focus {
+    background: none !important;
+    outline: none;
+  }
+}
+
+/* --- Desktop görünüm --- */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
+  }
+
+  nav ul.menu {
+    display: flex !important;
+  }
+
+  .header-actions {
+    order: 2; /* Sağda dursun */
+  }
+
+  nav {
+    justify-content: space-between;
   }
 }
