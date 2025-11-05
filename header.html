@@ -1,19 +1,22 @@
-<header>
-    <nav class="container">
-      <ul>
-        <li><strong><a href="/">Cool Apps</a></strong></li>
-      </ul>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/apps">Apps</a></li>
-        <li><a href="/games">Games</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li>
-          <button id="themeSwitcher" aria-label="Change Theme" style="font-size: 1.4rem; background:none; border:none; cursor:pointer;">
-            ⚙️
-          </button>
-        </li>
-      </ul>
-    </nav>
-  </header>
-  
+<header class="container-fluid">
+  <nav>
+    <a href="/" class="logo-link">
+      <img id="site-logo" src="/assets/picture/logo.jpg" alt="Cool Apps Logo" class="site-logo" />
+    </a>
+
+    <div class="nav-buttons">
+      <button id="themeSwitcher" aria-label="Theme switcher" style="background:none; border:none; cursor:pointer;">
+        <img id="themeIcon" src="/assets/picture/icon/theme-system.png" alt="Theme icon" width="40" height="40">
+      </button>
+      <button class="menu-toggle" aria-label="Open/Close menu">☰</button>
+    </div>
+
+    <ul class="menu">
+      <li><a href="/">Home</a></li>
+      <li><a href="/apps">Apps</a></li>
+      <li><a href="/games">Games</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+
+  </nav>
+</header>

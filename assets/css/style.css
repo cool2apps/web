@@ -146,3 +146,95 @@
   text-align: center;
   font-size: 0.9rem;
 }
+
+.site-logo {
+  height: 80px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.logo-link img {
+  height: 64px;
+  vertical-align: middle;
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Mobilde daha küçük göster (örneğin ekran 600px'den küçükse) */
+@media (max-width: 600px) {
+  .logo-link img {
+    height: 48px;
+  }
+}
+
+/* Orta boyutlu tabletlerde biraz ortada kalsın */
+@media (max-width: 900px) and (min-width: 601px) {
+  .logo-link img {
+    height: 64px;
+  }
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.theme-switcher,
+.menu-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+/* Tema farkında görünürlük */
+.theme-switcher img {
+  width: 24px;
+  height: 24px;
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--pico-color, currentColor);
+}
+
+.menu-toggle:hover,
+.theme-switcher:hover {
+  background-color: var(--pico-muted-border-color);
+}
+
+/* Mobil uyumlu menü */
+@media (max-width: 768px) {
+  nav {
+    position: relative;
+  }
+
+  nav ul.menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    background: var(--pico-card-background-color);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+  }
+
+  nav ul.menu.show {
+    display: flex;
+  }
+}

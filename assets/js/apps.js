@@ -8,8 +8,8 @@ const appsData = [
       screenshotCount: 3,
       screenshotLandscape: false,
       description: "A ZX Spectrum emulator and digital archive for classic gaming enthusiasts.",
-      ios: "https://apps.apple.com/app/zx-spectrum-gamer/id123456",
-      android: "https://play.google.com/store/apps/details?id=com.cool2apps.zxgamer",
+      ios: "https://apps.apple.com/us/app/zx-spectrum-gamer/id6450643144",
+      android: "https://play.google.com/store/apps/details?id=com.cooolapps.zxspectrumgamer",
     },
     {
       name: "Treasure Island",
@@ -18,10 +18,9 @@ const appsData = [
       featured: true,
       screenshotCount: 3,
       screenshotLandscape: true,
-      description:
-        "Embark on a thrilling adventure to uncover hidden treasures on a mysterious tropical island.",
-      ios: "https://apps.apple.com/app/treasure-island/id234567",
-      android: "https://play.google.com/store/apps/details?id=com.cool2apps.treasureisland",
+      description: "Embark on a thrilling adventure to uncover hidden treasures on a mysterious tropical island.",
+      ios: "https://apps.apple.com/us/app/treasure-island-find-treasure/id1662353960",
+      android: "https://play.google.com/store/apps/details?id=com.gadgetrviews.treasure_island",
     },
     {
       name: "Retro Radio",
@@ -52,10 +51,9 @@ const appsData = [
       featured: false,
       screenshotCount: 4,
       screenshotLandscape: true,
-      description:
-        "Embark on a thrilling adventure to uncover hidden treasures on a mysterious tropical island.",
-      ios: "https://apps.apple.com/app/treasure-island/id234567",
-      android: "https://play.google.com/store/apps/details?id=com.cool2apps.treasureisland",
+      description: "Subway Quest is a game to test your knowledge about subways of major cities such as London.",
+      ios: "https://apps.apple.com/us/app/subway-quest/id6444061277",
+      android: "",
     },
     {
       name: "LeTV IR Fix",
@@ -111,8 +109,7 @@ const appsData = [
       featured: false,
       screenshotCount: 4,
       screenshotLandscape: false,
-      description:
-        "Embark on a thrilling adventure to uncover hidden treasures on a mysterious tropical island.",
+      description: "Embark on a thrilling adventure to uncover hidden treasures on a mysterious tropical island.",
       ios: "https://apps.apple.com/app/treasure-island/id234567",
       android: "https://play.google.com/store/apps/details?id=com.cool2apps.treasureisland",
     },
@@ -120,11 +117,10 @@ const appsData = [
       name: "Armenian Churches",
       id: "armenian-churches",
       type: "app",
-        featured: false,
+      featured: false,
       screenshotCount: 4,
       screenshotLandscape: false,
-    description:
-        "Embark on a thrilling adventure to uncover hidden treasures on a mysterious tropical island.",
+      description: "Information about Armenian churches around the world.",
       ios: "https://apps.apple.com/app/treasure-island/id234567",
       android: "https://play.google.com/store/apps/details?id=com.cool2apps.treasureisland",
     },

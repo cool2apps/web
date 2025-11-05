@@ -1,18 +1,5 @@
 // include.js
-/*
-function includeHTML() {
-  document.querySelectorAll('[data-include]').forEach(async (el) => {
-    const file = el.getAttribute('data-include');
-    const response = await fetch(file);
-    if (response.ok) {
-      el.innerHTML = await response.text();
-      if (file === 'header.html') initThemeSwitcher?.(); // Tema düğmesi için
-    } else {
-      el.innerHTML = "Include file not found.";
-    }
-  });
-}
-  */
+
 document.addEventListener("DOMContentLoaded", () => {
   const includes = document.querySelectorAll("[data-include]");
   includes.forEach(el => {
@@ -21,8 +8,22 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(res => res.text())
       .then(data => {
         el.innerHTML = data;
-        if (file.includes("header")) initThemeSwitcher();
+        if (file.includes("header")) {
+          initThemeSwitcher();
+          initMenuToggle(); // 👈 menü fonksiyonunu burada çağırıyoruz
+        }    
       });
   });
+
 });
   
+function initMenuToggle() {
+  const menuToggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector("nav ul.menu");
+
+  if (menuToggle && menu) {
+    menuToggle.addEventListener("click", () => {
+      menu.classList.toggle("show");
+    });
+  }
+}

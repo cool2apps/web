@@ -13,18 +13,32 @@ function initThemeSwitcher() {
       document.documentElement.setAttribute("data-theme", theme);
     }
     updateIcon(theme);
+
+    const logo = document.getElementById("site-logo");
+    if (theme === "dark") {
+      logo.src = "/assets/picture/logo-dark.jpg";
+    } else if (theme === "light") {
+      logo.src = "/assets/picture/logo.jpg";
+    } else {
+      // Sistem temasına göre
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      logo.src = prefersDark
+        ? "/assets/picture/logo-dark.jpg"
+        : "/assets/picture/logo.jpg";
+    }
   }
 
   function updateIcon(theme) {
-    if (theme === "light") {
-      switcher.textContent = "🌞"; // Güneş
-      switcher.title = "Switch to Dark Mode";
-    } else if (theme === "dark") {
-      switcher.textContent = "🌜"; // Ay
-      switcher.title = "Switch to Auto Mode";
-    } else {
-      switcher.textContent = "⚙️"; // Dişli
-      switcher.title = "Follow System Theme";
+    const icon = document.getElementById("themeIcon");
+     if (theme === "dark" || (theme === "system" && isSystemDark)) {
+      document.documentElement.classList.add("dark");
+      icon.src = "/assets/picture/icon/theme-dark.png";
+    } else if (theme === "light" || (theme === "system" && !isSystemDark)) {
+      document.documentElement.classList.add("light");
+      icon.src = "/assets/picture/icon/theme-light.png";
+    }
+    if (theme === "system") {
+      icon.src = "/assets/picture/icon/theme-system.png";
     }
   }
 
@@ -42,14 +56,29 @@ function initThemeSwitcher() {
   // Düğmeye tıklayınca sıradaki moda geç
   switcher.addEventListener("click", () => {
     const current = localStorage.getItem("theme") || "auto";
+    let theme1 = "light";
+    let theme2 = "light";
+    if (current === "auto") {
+      theme1 = prefersDark.matches ? "dark" : "light";
+    } else {
+      theme1 =  current;
+    }
     let next;
     if (current === "light") next = "dark";
     else if (current === "dark") next = "auto";
     else next = "light";
-
     localStorage.setItem("theme", next);
     applyTheme(next);
+    if (next === "auto") {
+      theme2 = prefersDark.matches ? "dark" : "light";
+    } else {
+      theme2 =  next;
+    }
+    if (theme1 !== theme2) {
+      setTimeout(() => location.reload(), 150);
+    }
   });
+
 }
 
 document.addEventListener("DOMContentLoaded", initThemeSwitcher);
